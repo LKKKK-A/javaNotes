@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/jdbcstudy
+      username: root
+      password: 123456
+
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      table-prefix: tb
+
+mybatis:
+  type-aliases-package: com.lkkkk.domain
+#  当不配置mapper-locations时，mybatis会在对应的接口中找对应的xml映射文件
+
+  mapper-locations: classpath:com/lkkkk/mapper/BrandMapper.xml

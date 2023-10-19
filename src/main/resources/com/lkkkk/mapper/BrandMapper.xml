@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lkkkk.mapper.BrandMapper">
+
+    <resultMap id="brandMap" type="brand">
+        <result column="brand_name" property="brandName"></result>
+        <result column="company_name" property="companyName"></result>
+    </resultMap>
+    <select id="selectByCondition" resultMap="brandMap">
+        select * from tb_brand
+            <where>
+                <if test="companyName != null and companyName != ''" >
+                    or company_name like #{companyName}
+                </if>
+                <if test="brandName != null and brandName != ''">
+                    or brand_name like #{brandName}
+                </if>
+            </where>
+    </select>
+</mapper>
